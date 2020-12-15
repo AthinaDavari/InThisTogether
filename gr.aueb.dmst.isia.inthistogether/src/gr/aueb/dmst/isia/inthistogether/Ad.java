@@ -15,7 +15,6 @@ public class Ad {
     
     public Ad(int id, String customerEmail, Date startDate, Date endDate, String service, String disabity,
 			String description, String location) {
-		super();
 		this.id = id;
 		this.customerEmail = customerEmail;
 		this.startDate = startDate;
