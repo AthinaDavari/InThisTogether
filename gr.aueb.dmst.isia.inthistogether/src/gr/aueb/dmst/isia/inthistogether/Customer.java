@@ -2,15 +2,14 @@ package inthistogether;
 
 public class Customer {
     
-  private String email;
+  	private String email;
 	private int phone;
 	private String password;
 	private String name;
-  private String surname;
+  	private String surname;
 	
 	
 	public Customer(String email, int phone, String password, String name, String surname) {
-		super();
 		this.email = email;
 		this.phone = phone;
 		this.password = password;
