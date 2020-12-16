@@ -24,6 +24,21 @@ public class AMEASupporter {
 	private boolean thursday;
 	private boolean friday;
 	private boolean saturday;
+	private boolean sunday;
+	private boolean deaf;
+	private boolean dyslexia;
+	private boolean epilipsy;
+	private boolean autism;
+	private boolean blind;
+	private boolean mobilityImpaired;
+	private boolean down;
+	private boolean learningSupportPrimarySchool;
+	private boolean learningSupportJuniorHighSchool;
+	private boolean learningSupportSeniorHighSchool;
+	private boolean occupationalTherapy;
+	private boolean logotherapy;
+	private boolean schoolCompanion;
+	private boolean externalCompanion;
 
 	public AMEASupporter(String email, String name, String surname, long phone, String serviceTown, String serviceArea,
 			String password, String sex, Date birthDate, String languages, boolean drivingLisence, boolean carOwner,
@@ -68,22 +83,6 @@ public class AMEASupporter {
 		this.schoolCompanion = schoolCompanion;
 		this.externalCompanion = externalCompanion;
 	}
-
-	private boolean sunday;
-	private boolean deaf;
-	private boolean dyslexia;
-	private boolean epilipsy;
-	private boolean autism;
-	private boolean blind;
-	private boolean mobilityImpaired;
-	private boolean down;
-	private boolean learningSupportPrimarySchool;
-	private boolean learningSupportJuniorHighSchool;
-	private boolean learningSupportSeniorHighSchool;
-	private boolean occupationalTherapy;
-	private boolean logotherapy;
-	private boolean schoolCompanion;
-	private boolean externalCompanion;
 
 	public String getEmail() {
 		return email;

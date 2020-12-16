@@ -1,4 +1,4 @@
-package inthistogether;
+package gr.aueb.dmst.isia.inthistogether;
 
 public class Customer {
     

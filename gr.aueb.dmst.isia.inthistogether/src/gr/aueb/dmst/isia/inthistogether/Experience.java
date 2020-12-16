@@ -1,3 +1,5 @@
+package gr.aueb.dmst.isia.inthistogether;
+
 import java.util.Date;
 
 /**
