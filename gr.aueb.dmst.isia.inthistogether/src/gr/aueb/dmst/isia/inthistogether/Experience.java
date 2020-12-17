@@ -6,6 +6,7 @@ import java.util.Date;
  *
  */
 public class Experience {
+	private int id;
 	private String email;
 	private String description;
 	private Date startdate;
@@ -13,16 +14,27 @@ public class Experience {
 	
 	/**
 	 * 
+	 * @param id
 	 * @param email
 	 * @param description
 	 * @param startdate
 	 * @param enddate
 	 */
-	public Experience(String email, String description, Date startdate, Date enddate) {
+	public Experience(int id, String email, String description, Date startdate, Date enddate) {
+		super();
+		this.id = id;
 		this.email = email;
 		this.description = description;
 		this.startdate = startdate;
 		this.enddate = enddate;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getEmail() {
@@ -56,5 +68,7 @@ public class Experience {
 	public void setEnddate(Date enddate) {
 		this.enddate = enddate;
 	}
+	
+	
 	
 }
