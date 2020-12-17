@@ -1,15 +1,16 @@
-package inthistogether;
+package gr.aueb.dmst.isia.inthistogether;
 
 public class Customer {
     
-  	private String email;
-	private int phone;
+    private String email;
+	private Long phone;
 	private String password;
 	private String name;
-  	private String surname;
+    private String surname;
 	
 	
-	public Customer(String email, int phone, String password, String name, String surname) {
+	public Customer(String email, Long phone, String password, String name, String surname) {
+		
 		this.email = email;
 		this.phone = phone;
 		this.password = password;
@@ -28,12 +29,12 @@ public class Customer {
 	}
 
 
-	public int getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
 
 
-	public void setPhone(int phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 
@@ -74,8 +75,20 @@ public class Customer {
 				+ ", surname=" + surname + "]";
 	}
 
-	
 
-    
+	public static boolean isLong(String s) {
+		boolean isValidLong = true;
+		try
+		{
+		   Long.parseLong(s); 
+		   // s is a valid integer
+		}
+		catch (NumberFormatException ex)
+		{
+			isValidLong = false;
+		   // s is not an integer
+		}
+		return isValidLong;
+	 }
 
 }
