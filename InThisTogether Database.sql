@@ -184,22 +184,22 @@ INSERT INTO customer (`email`,`phone`, `password`,`name`, `surname`) VALUES ('xp
 INSERT INTO customer (`email`,`phone`, `password`,`name`, `surname`) VALUES ('mblack@gmail.com', 6983046333, 'cttt6', 'Mike', 'Black');
 INSERT INTO customer (`email`,`phone`, `password`,`name`, `surname`) VALUES ('jholder@gmail.com', 6983046444, '32376', 'Jason', 'Holder');
 
-INSERT INTO ad (`id`,`customerEmail`, `startDate`,`endDate`, `service`, `disability`, `description`, `location`) VALUES ('1', 'ellie@gmail.com', '2021-1-12' , '2021-6-12','Helping young girl with homework', 'Autism', 
+INSERT INTO ad (`customerEmail`, `startDate`,`endDate`, `service`, `disability`, `description`, `location`) VALUES ('ellie@gmail.com', '2021-1-12' , '2021-6-12','Helping young girl with homework', 'Autism', 
 'I am looking for a qualified supporter to help my autistic niece with her homework, mostly greek language and english. On week days for two hours between 3-6 o clock.', 
 'Haidari, Athens');
-INSERT INTO ad (`id`,`customerEmail`, `startDate`,`endDate`, `service`, `disability`, `description`, `location`) 
-VALUES ('2', 'mpapadopoulou@gmail.com', '2021-2-12', '2021-5-30','Helping elderly man at home', 'Alzheimer', 
+INSERT INTO ad (`customerEmail`, `startDate`,`endDate`, `service`, `disability`, `description`, `location`) 
+VALUES ('mpapadopoulou@gmail.com', '2021-2-12', '2021-5-30','Helping elderly man at home', 'Alzheimer', 
 'I am looking for a qualified supporter to help my father with alzheimer at home. Helping him taker his pills,  his pressure and cooking him lunch and dinner. 
 Every day and form 12 to 8 o clock', 'Chalandri, Athens');
-INSERT INTO ad (`id`,`customerEmail`, `startDate`,`endDate`, `service`, `disability`, `description`, `location`) 
-VALUES ('3', 'xpappa@gmail.com', '2021-3-11', '2021-3-21','Accompanying blind person in a seminar in England', 'Blind', 
+INSERT INTO ad (`customerEmail`, `startDate`,`endDate`, `service`, `disability`, `description`, `location`) 
+VALUES ('xpappa@gmail.com', '2021-3-11', '2021-3-21','Accompanying blind person in a seminar in England', 'Blind', 
 'I am looking for a qualified supporter to accompany my blind sister in a 10-day-seminar in Oxford, England in March 2021. Hotel and plane tickets covered.', 
 'Kamara, Thessaloniki');
-INSERT INTO ad (`id`,`customerEmail`, `startDate`,`endDate`, `service`, `disability`, `description`, `location`) 
-VALUES ('4', 'mblack@gmail.com', '2021-4-11', '2021-4-14','Translating in sign language in an event', 'Deaf', 
+INSERT INTO ad (`customerEmail`, `startDate`,`endDate`, `service`, `disability`, `description`, `location`) 
+VALUES ('mblack@gmail.com', '2021-4-11', '2021-4-14','Translating in sign language in an event', 'Deaf', 
 'I am looking for a qualified supporter to translate in sign language in my Tedx Chania event. 30 hours of speeches for 3 days.', 
 'Chania');
-INSERT INTO ad (`id`,`customerEmail`, `startDate`,`endDate`, `service`, `disability`, `description`, `location`) 
-VALUES ('5', 'jholder@gmail.com', '2021-4-11', '2021-6-21','Teaching sign language- private lessons', 'Deaf', 
+INSERT INTO ad (`customerEmail`, `startDate`,`endDate`, `service`, `disability`, `description`, `location`) 
+VALUES ('jholder@gmail.com', '2021-4-11', '2021-6-21','Teaching sign language- private lessons', 'Deaf', 
 'I am looking for a qualified teacher to teach me sign language. Two times a week for 2 hours.', 
 'Patra');

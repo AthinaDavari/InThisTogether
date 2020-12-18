@@ -13,7 +13,18 @@ public class Ad {
     private String description;
     private String location;
     
-    public Ad(int id, String customerEmail, Date startDate, Date endDate, String service, String disabity,
+    public Ad(String customerEmail, Date startDate, Date endDate, String service, String disabity,
+			String description, String location) {
+		this.customerEmail = customerEmail;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.service = service;
+		this.disabity = disabity;
+		this.description = description;
+		this.location = location;
+	}
+
+	public Ad(int id, String customerEmail, Date startDate, Date endDate, String service, String disabity,
 			String description, String location) {
 		this.id = id;
 		this.customerEmail = customerEmail;
@@ -24,6 +35,7 @@ public class Ad {
 		this.description = description;
 		this.location = location;
 	}
+
     
     public int getId() {
 		return id;

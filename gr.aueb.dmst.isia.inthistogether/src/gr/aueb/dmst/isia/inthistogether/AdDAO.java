@@ -17,6 +17,7 @@ public class AdDAO {
 
 		try {
 
+			con = db.getConnection();
 			stmt = con.prepareStatement(getads); // initialize stmt insert
 			rs = stmt.executeQuery();
 
@@ -51,6 +52,7 @@ public class AdDAO {
 
 		try {
 
+			con = db.getConnection();
 			stmt = con.prepareStatement(insertad); // initialize stmt insert
 
 			stmt.setString(1,ad.getCustomerEmail());
