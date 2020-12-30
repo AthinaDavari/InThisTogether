@@ -32,7 +32,7 @@ public class AMEASupporterDAO {
 			if (!rs.next()) {
 				rs.close();
 				stmt.close();
-				throw new Exception("Wrong username or password");
+				throw new Exception("Wrong email or password");
 			}
 			AMEASupporter ameasupporter = new AMEASupporter(rs.getString("email"), rs.getString("name"),
 					rs.getString("surname"),
@@ -96,7 +96,7 @@ public class AMEASupporterDAO {
 			if (!rs.next()) {
 				rs.close();
 				stmt.close();
-				throw new Exception("Wrong username or password");
+				throw new Exception("That email does not exist!");
 			}
 
 			String getage = "select * from age where email = ?";
