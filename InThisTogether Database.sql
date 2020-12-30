@@ -83,7 +83,7 @@ FOREIGN KEY (`customerEmail`) REFERENCES `Customer` (`email`)
 );
 
 create view Age (email,age)
-as select email, DATEDIFF(birthdate , CURDATE())
+as select email, TIMESTAMPDIFF(year, birthdate, CURDATE())
 from AMEASupporter;
 
 insert into ameasupporter 

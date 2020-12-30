@@ -86,7 +86,9 @@ public class AMEASupporterDAO {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT * FROM ameasupporter;";
+		String sql = "SELECT email, name, surname, deaf,dyslexia,epilipsy,autism,blind,mobilityImpaired,down,\r\n" + 
+				"learningSupportPrimarySchool,learningSupportJuniorHighSchool,learningSupportSeniorHighSchool,occupationalTherapy,logotherapy,schoolCompanion,\r\n" + 
+				"externalCompanion,serviceArea, languages FROM ameasupporter;";
 
 		try {
 			
@@ -95,13 +97,8 @@ public class AMEASupporterDAO {
 			rs = stmt.executeQuery();
 
 			while(rs.next()) {
-				ameasup.add(new AMEASupporter(rs.getString("email"), rs.getString("name"), rs.getString("surname"),
-				rs.getLong("phone"), rs.getString("serviceTown"), rs.getString("serviceArea"),
-				rs.getString("password"), rs.getString("sex"), rs.getDate("birthDate"),
-				rs.getString("languages"), rs.getBoolean("drivingLisence"), rs.getBoolean("carOwner"),
-				rs.getDouble("payPerHour"), rs.getBoolean("available"), rs.getBoolean("monday"),
-				rs.getBoolean("tuesday"), rs.getBoolean("wednesday"), rs.getBoolean("thursday"),
-				rs.getBoolean("friday"), rs.getBoolean("saturday"), rs.getBoolean("sunday"),
+				ameasup.add(new AMEASupporter(rs.getString("email"), rs.getString("name"), 
+				rs.getString("surname"), rs.getString("serviceArea"),rs.getString("languages"), 				
 				rs.getBoolean("deaf"), rs.getBoolean("dyslexia"), rs.getBoolean("epilipsy"),
 				rs.getBoolean("autism"), rs.getBoolean("blind"), rs.getBoolean("mobilityImpaired"),
 				rs.getBoolean("down"), rs.getBoolean("learningSupportPrimarySchool"), rs.getBoolean("learningSupportJuniorHighSchool"),

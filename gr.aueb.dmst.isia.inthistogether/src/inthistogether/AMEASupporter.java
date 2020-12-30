@@ -40,6 +40,32 @@ public class AMEASupporter {
 	private boolean schoolCompanion;
 	private boolean externalCompanion;
 
+	public AMEASupporter(String email, String name, String surname, String serviceArea, String languages, boolean deaf,
+			boolean dyslexia, boolean epilipsy, boolean autism, boolean blind, boolean mobilityImpaired, boolean down,
+			boolean learningSupportPrimarySchool, boolean learningSupportJuniorHighSchool,
+			boolean learningSupportSeniorHighSchool, boolean occupationalTherapy, boolean logotherapy,
+			boolean schoolCompanion, boolean externalCompanion) {
+		this.email = email;
+		this.name = name;
+		this.surname = surname;
+		this.serviceArea = serviceArea;
+		this.languages = languages;
+		this.deaf = deaf;
+		this.dyslexia = dyslexia;
+		this.epilipsy = epilipsy;
+		this.autism = autism;
+		this.blind = blind;
+		this.mobilityImpaired = mobilityImpaired;
+		this.down = down;
+		this.learningSupportPrimarySchool = learningSupportPrimarySchool;
+		this.learningSupportJuniorHighSchool = learningSupportJuniorHighSchool;
+		this.learningSupportSeniorHighSchool = learningSupportSeniorHighSchool;
+		this.occupationalTherapy = occupationalTherapy;
+		this.logotherapy = logotherapy;
+		this.schoolCompanion = schoolCompanion;
+		this.externalCompanion = externalCompanion;
+	}
+	
 	public AMEASupporter(String email, String name, String surname, long phone, String serviceTown, String serviceArea,
 			String password, String sex, Date birthDate, String languages, boolean drivingLisence, boolean carOwner,
 			double payPerHour, boolean available, boolean monday, boolean tuesday, boolean wednesday, boolean thursday,
