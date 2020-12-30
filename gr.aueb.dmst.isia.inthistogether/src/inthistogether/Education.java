@@ -9,8 +9,6 @@ public class Education {
     private String typeOfEducation;
     
     public Education (int id, String customerEmail, String title, String typeOfEducation) {
-
-		super();
 		this.id = id;
 		this.customerEmail = customerEmail;
 		this.title = title;

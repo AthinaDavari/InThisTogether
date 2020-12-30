@@ -23,7 +23,6 @@ public class Experience {
 	 * @param enddate
 	 */
 	public Experience(int id, String email, String description, Date startdate, Date enddate) {
-		super();
 		this.id = id;
 		this.email = email;
 		this.description = description;
