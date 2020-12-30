@@ -39,6 +39,7 @@ public class AMEASupporter {
 	private boolean logotherapy;
 	private boolean schoolCompanion;
 	private boolean externalCompanion;
+	private int age;
 
 	public AMEASupporter(String email, String name, String surname, String serviceArea, String languages, boolean deaf,
 			boolean dyslexia, boolean epilipsy, boolean autism, boolean blind, boolean mobilityImpaired, boolean down,
@@ -66,6 +67,53 @@ public class AMEASupporter {
 		this.externalCompanion = externalCompanion;
 	}
 	
+	public AMEASupporter(String email, String name, String surname, int age, long phone, String serviceTown, String serviceArea,
+			String sex, Date birthDate, String languages, boolean drivingLisence, boolean carOwner, double payPerHour,
+			boolean available, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday,
+			boolean saturday, boolean sunday, boolean deaf, boolean dyslexia, boolean epilipsy, boolean autism,
+			boolean blind, boolean mobilityImpaired, boolean down, boolean learningSupportPrimarySchool,
+			boolean learningSupportJuniorHighSchool, boolean learningSupportSeniorHighSchool,
+			boolean occupationalTherapy, boolean logotherapy, boolean schoolCompanion, boolean externalCompanion) {
+		super();
+		this.email = email;
+		this.name = name;
+		this.surname = surname;
+		this.age = age;
+		this.phone = phone;
+		this.serviceTown = serviceTown;
+		this.serviceArea = serviceArea;
+		this.sex = sex;
+		this.birthDate = birthDate;
+		this.languages = languages;
+		this.drivingLisence = drivingLisence;
+		this.carOwner = carOwner;
+		this.payPerHour = payPerHour;
+		this.available = available;
+		this.monday = monday;
+		this.tuesday = tuesday;
+		this.wednesday = wednesday;
+		this.thursday = thursday;
+		this.friday = friday;
+		this.saturday = saturday;
+		this.sunday = sunday;
+		this.deaf = deaf;
+		this.dyslexia = dyslexia;
+		this.epilipsy = epilipsy;
+		this.autism = autism;
+		this.blind = blind;
+		this.mobilityImpaired = mobilityImpaired;
+		this.down = down;
+		this.learningSupportPrimarySchool = learningSupportPrimarySchool;
+		this.learningSupportJuniorHighSchool = learningSupportJuniorHighSchool;
+		this.learningSupportSeniorHighSchool = learningSupportSeniorHighSchool;
+		this.occupationalTherapy = occupationalTherapy;
+		this.logotherapy = logotherapy;
+		this.schoolCompanion = schoolCompanion;
+		this.externalCompanion = externalCompanion;
+	}
+
+
+
 	public AMEASupporter(String email, String name, String surname, long phone, String serviceTown, String serviceArea,
 			String password, String sex, Date birthDate, String languages, boolean drivingLisence, boolean carOwner,
 			double payPerHour, boolean available, boolean monday, boolean tuesday, boolean wednesday, boolean thursday,
@@ -120,6 +168,14 @@ public class AMEASupporter {
 
 	public String getName() {
 		return name;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 	public void setName(String name) {
