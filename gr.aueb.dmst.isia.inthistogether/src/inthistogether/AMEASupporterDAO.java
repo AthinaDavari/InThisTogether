@@ -103,6 +103,7 @@ public class AMEASupporterDAO {
 			stmt = con.prepareStatement(getage);
 			stmt.setString(1, email);
 			ResultSet rs1 = stmt.executeQuery();
+			rs1.next();
 
 			AMEASupporter ameasupporter = new AMEASupporter(rs.getString("email"), rs.getString("name"),
 					rs.getString("surname"),
@@ -148,7 +149,7 @@ public class AMEASupporterDAO {
 			}
 		}
 	} // End of getAmeaSupporter
-
+	
 	public List<Education> getAMEASupportersEducation(String email) throws Exception {
 
 		List<Education> ameasuped = new ArrayList<Education>();
