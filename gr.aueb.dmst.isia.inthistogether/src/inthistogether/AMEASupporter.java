@@ -445,5 +445,21 @@ public class AMEASupporter {
 	public void setExternalCompanion(boolean externalCompanion) {
 		this.externalCompanion = externalCompanion;
 	}
+	
+	public static boolean isLong(String s) {
+		boolean isValidLong = true;
+		try
+		{
+		   Long.parseLong(s); 
+		   // s is a valid integer
+		}
+		catch (NumberFormatException ex)
+		{
+			isValidLong = false;
+		   // s is not an integer
+		}
+		return isValidLong;
+	 }
+
 
 }
