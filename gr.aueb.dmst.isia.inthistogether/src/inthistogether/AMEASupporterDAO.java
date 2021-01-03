@@ -278,5 +278,103 @@ public class AMEASupporterDAO {
 		}
 
 	} // End of getUsers
+	
+	public void register(AMEASupporter ameasup, Education educ, Experience exper) throws Exception {
+			
+
+		DB db = new DB();
+		Connection con = null;
+		PreparedStatement stmt = null;
+		String checksql = "SELECT * FROM ismgroup10.ameasupporter WHERE email=?;"; 
+		String sql1 = "INSERT INTO ismgroup10.ameasupporter (email, name, surname, phone, serviceTown, serviceArea, password, sex, birthdate, languages, drivingLisence, carOwner, payPerHour, available, monday, tuesday, wednesday, thursday, friday, saturday, sunday, deaf, dyslexia, epilipsy, autism, blind, mobilityImpaired, down, learningSupportPrimarySchool, learningSupportJuniorHighSchool, learningSupportSeniorHighSchool, occupationalTherapy, logotherapy, schoolCompanion, externalCompanion) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+		String sql2 = "INSERT INTO ismgroup10.education (AMEASupEmail, title, typeOfEducation) VALUES(?, ?, ?)";
+		String sql3 = "INSERT INTO ismgroup10.experience (AMEASupEmail, description, startdate, enddate ) VALUES(?, ?, ?, ?)";
+
+		try {
+
+			con = db.getConnection();
+			stmt = con.prepareStatement(checksql); 
+			stmt.setString(1,ameasup.getEmail());
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+
+				rs.close();
+				stmt.close();
+				throw new Exception("Email already registered");
+
+			}
+
+			stmt = con.prepareStatement(sql1);
+				
+			stmt.setString(1,ameasup.getEmail());
+			stmt.setString(2,ameasup.getName());
+			stmt.setString(3,ameasup.getSurname());
+			stmt.setLong(4,ameasup.getPhone());
+			stmt.setString(5,ameasup.getServiceTown());
+			stmt.setString(6,ameasup.getServiceArea());
+			stmt.setString(7,ameasup.getPassword());
+			stmt.setString(8,ameasup.getSex());
+			stmt.setDate(9,ameasup.getBirthDate());
+			stmt.setString(10,ameasup.getLanguages());
+			stmt.setBoolean(11,ameasup.isDrivingLisence());
+			stmt.setBoolean(12,ameasup.isCarOwner());
+			stmt.setDouble(13,ameasup.getPayPerHour());
+			stmt.setBoolean(14,ameasup.isAvailable());
+			stmt.setBoolean(15,ameasup.isMonday());
+			stmt.setBoolean(16,ameasup.isTuesday());
+			stmt.setBoolean(17,ameasup.isWednesday());
+			stmt.setBoolean(18,ameasup.isThursday());
+			stmt.setBoolean(19,ameasup.isFriday());
+			stmt.setBoolean(20,ameasup.isSaturday());
+			stmt.setBoolean(21,ameasup.isSunday());
+			stmt.setBoolean(22,ameasup.isDeaf());
+			stmt.setBoolean(23,ameasup.isDyslexia());
+			stmt.setBoolean(24,ameasup.isEpilipsy());
+			stmt.setBoolean(25,ameasup.isAutism());
+			stmt.setBoolean(26,ameasup.isBlind());
+			stmt.setBoolean(27,ameasup.isMobilityImpaired());
+			stmt.setBoolean(28,ameasup.isDown());
+			stmt.setBoolean(29,ameasup.isLearningSupportPrimarySchool());
+			stmt.setBoolean(30,ameasup.isLearningSupportJuniorHighSchool());
+			stmt.setBoolean(31,ameasup.isLearningSupportSeniorHighSchool());
+			stmt.setBoolean(32,ameasup.isOccupationalTherapy());
+			stmt.setBoolean(33,ameasup.isLogotherapy());
+			stmt.setBoolean(34,ameasup.isSchoolCompanion());
+			stmt.setBoolean(35,ameasup.isExternalCompanion());
+
+
+			stmt = con.prepareStatement(sql2);
+
+			stmt.setString(1,educ.getCustomerEmail());
+			stmt.setString(2,educ.getTitle());
+			stmt.setString(3,educ.getTypeOfEducation());
+
+			stmt = con.prepareStatement(sql3);
+
+			stmt.setString(1,exper.getEmail());
+			stmt.setString(2,exper.getDescription());
+			stmt.setDate(3, (Date) exper.getStartdate());
+			stmt.setDate(4, (Date) exper.getEnddate());
+
+
+			stmt.executeUpdate();
+
+			stmt.close();
+
+		} catch (Exception e) {
+
+			throw new Exception(e.getMessage());
+
+		} finally {
+
+			try {
+				db.close();
+			} catch (Exception e) {
+
+			}
+		}
+		
+	}//end of register
 
 }
