@@ -13,7 +13,12 @@ public class Education {
 		this.customerEmail = customerEmail;
 		this.title = title;
         this.typeOfEducation = typeOfEducation;
-        
+	}
+	
+	public Education (String customerEmail, String title, String typeOfEducation) {
+		this.customerEmail = customerEmail;
+		this.title = title;
+        this.typeOfEducation = typeOfEducation;
     }
     
     public int getId() {
