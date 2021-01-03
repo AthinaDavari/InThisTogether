@@ -28,6 +28,13 @@ public class Experience {
 		this.description = description;
 		this.startdate = startdate;
 		this.enddate = enddate;
+    }
+    
+    public Experience(String email, String description, Date startdate, Date enddate) {
+		this.email = email;
+		this.description = description;
+		this.startdate = startdate;
+		this.enddate = enddate;
 	}
 
 	public int getId() {
