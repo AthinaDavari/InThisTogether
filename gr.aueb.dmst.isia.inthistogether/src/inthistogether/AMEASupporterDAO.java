@@ -343,13 +343,14 @@ public class AMEASupporterDAO {
 			stmt.setBoolean(34,ameasup.isSchoolCompanion());
 			stmt.setBoolean(35,ameasup.isExternalCompanion());
 
-
+			stmt.executeUpdate();
 			stmt = con.prepareStatement(sql2);
 
 			stmt.setString(1,educ.getCustomerEmail());
 			stmt.setString(2,educ.getTitle());
 			stmt.setString(3,educ.getTypeOfEducation());
 
+			stmt.executeUpdate();
 			stmt = con.prepareStatement(sql3);
 
 			stmt.setString(1,exper.getEmail());
@@ -363,7 +364,6 @@ public class AMEASupporterDAO {
 			stmt.close();
 
 		} catch (Exception e) {
-
 			throw new Exception(e.getMessage());
 
 		} finally {
