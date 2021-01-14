@@ -1,0 +1,48 @@
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+  
+  body {
+     padding-top: 70px;
+    
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+  }
+  
+  nav a b{
+      color: #8f3275;
+  }
+
+  .navbar, .dropdown-menu {
+       background-color: #c6b0c8
+  }
+  
+  .theme-dropdown .dropdown-menu {
+    position: static;
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  .theme-showcase > p > .btn {
+    margin: 5px 0;
+  }
+  
+  .theme-showcase .navbar .container {
+    width: auto;
+  }
+
+  /*footer */
+  .navbar-inverse{
+    background:  #c6b0c8;
+    color: #8f3275;
+    text-align: center;
+    padding: 20px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 170px;
+    }
+
+  
