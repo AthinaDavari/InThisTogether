@@ -279,7 +279,7 @@ public class AMEASupporterDAO {
 
 	} // End of getUsers
 	
-	public void register(AMEASupporter ameasup, Education educ, Experience exper) throws Exception {
+	public void register(AMEASupporter ameasup, List<Education> educList, List<Experience> experList) throws Exception {
 			
 
 		DB db = new DB();
@@ -342,24 +342,26 @@ public class AMEASupporterDAO {
 			stmt.setBoolean(33,ameasup.isLogotherapy());
 			stmt.setBoolean(34,ameasup.isSchoolCompanion());
 			stmt.setBoolean(35,ameasup.isExternalCompanion());
-
 			stmt.executeUpdate();
-			stmt = con.prepareStatement(sql2);
 
-			stmt.setString(1,educ.getCustomerEmail());
-			stmt.setString(2,educ.getTitle());
-			stmt.setString(3,educ.getTypeOfEducation());
+			for (Education ed : educList) {
+				stmt = con.prepareStatement(sql2);
 
-			stmt.executeUpdate();
-			stmt = con.prepareStatement(sql3);
+				stmt.setString(1,ed.getCustomerEmail());
+				stmt.setString(2,ed.getTitle());
+				stmt.setString(3,ed.getTypeOfEducation());
+				stmt.executeUpdate();
+			}
+			
+			for (Experience exp : experList) {
+				stmt = con.prepareStatement(sql3);
 
-			stmt.setString(1,exper.getEmail());
-			stmt.setString(2,exper.getDescription());
-			stmt.setDate(3, (Date) exper.getStartdate());
-			stmt.setDate(4, (Date) exper.getEnddate());
-
-
-			stmt.executeUpdate();
+				stmt.setString(1,exp.getEmail());
+				stmt.setString(2,exp.getDescription());
+				stmt.setDate(3, (Date) exp.getStartdate());
+				stmt.setDate(4, (Date) exp.getEnddate());
+				stmt.executeUpdate();
+			}
 
 			stmt.close();
 
@@ -376,5 +378,86 @@ public class AMEASupporterDAO {
 		}
 		
 	}//end of register
+
+	public void editProfile(AMEASupporter ameasup, List<Education> educList, List<Experience> experList) throws Exception {
+			
+		DB db = new DB();
+		Connection con = null;
+		PreparedStatement stmt = null; 
+		String sql1 = "UPDATE ismgroup10.ameasupporter SET phone=?, serviceTown=? , serviceArea=? , languages=? , drivingLisence=? , carOwner=? , payPerHour=? , available=? , monday=? , tuesday=? , wednesday=? , thursday=? , friday=? , saturday=? , sunday=? , deaf=? , dyslexia=? , epilipsy=? , autism=? , blind=? , mobilityImpaired=? , down=? , learningSupportPrimarySchool=? , learningSupportJuniorHighSchool=? , learningSupportSeniorHighSchool=? , occupationalTherapy=? , logotherapy=? , schoolCompanion=? , externalCompanion=? WHERE email=?";
+		String sql2 = "INSERT INTO ismgroup10.education (AMEASupEmail, title, typeOfEducation) VALUES(?, ?, ?)";
+		String sql3 = "INSERT INTO ismgroup10.experience (AMEASupEmail, description, startdate, enddate ) VALUES(?, ?, ?, ?)";
+
+		try {
+
+			con = db.getConnection();
+			stmt = con.prepareStatement(sql1);
+
+			stmt.setLong(1,ameasup.getPhone());
+			stmt.setString(2,ameasup.getServiceTown());
+			stmt.setString(3,ameasup.getServiceArea());
+			stmt.setString(4,ameasup.getLanguages());
+			stmt.setBoolean(5,ameasup.isDrivingLisence());
+			stmt.setBoolean(6,ameasup.isCarOwner());
+			stmt.setDouble(7,ameasup.getPayPerHour());
+			stmt.setBoolean(8,ameasup.isAvailable());
+			stmt.setBoolean(9,ameasup.isMonday());
+			stmt.setBoolean(10,ameasup.isTuesday());
+			stmt.setBoolean(11,ameasup.isWednesday());
+			stmt.setBoolean(12,ameasup.isThursday());
+			stmt.setBoolean(13,ameasup.isFriday());
+			stmt.setBoolean(14,ameasup.isSaturday());
+			stmt.setBoolean(15,ameasup.isSunday());
+			stmt.setBoolean(16,ameasup.isDeaf());
+			stmt.setBoolean(17,ameasup.isDyslexia());
+			stmt.setBoolean(18,ameasup.isEpilipsy());
+			stmt.setBoolean(19,ameasup.isAutism());
+			stmt.setBoolean(20,ameasup.isBlind());
+			stmt.setBoolean(21,ameasup.isMobilityImpaired());
+			stmt.setBoolean(22,ameasup.isDown());
+			stmt.setBoolean(23,ameasup.isLearningSupportPrimarySchool());
+			stmt.setBoolean(24,ameasup.isLearningSupportJuniorHighSchool());
+			stmt.setBoolean(25,ameasup.isLearningSupportSeniorHighSchool());
+			stmt.setBoolean(26,ameasup.isOccupationalTherapy());
+			stmt.setBoolean(27,ameasup.isLogotherapy());
+			stmt.setBoolean(28,ameasup.isSchoolCompanion());
+			stmt.setBoolean(29,ameasup.isExternalCompanion());
+			stmt.setString(30,ameasup.getEmail());
+			stmt.executeUpdate();
+
+			for (Education ed : educList) {
+				stmt = con.prepareStatement(sql2);
+
+				stmt.setString(1,ed.getCustomerEmail());
+				stmt.setString(2,ed.getTitle());
+				stmt.setString(3,ed.getTypeOfEducation());
+				stmt.executeUpdate();
+			}
+			
+			for (Experience exp : experList) {
+				stmt = con.prepareStatement(sql3);
+
+				stmt.setString(1,exp.getEmail());
+				stmt.setString(2,exp.getDescription());
+				stmt.setDate(3, (Date) exp.getStartdate());
+				stmt.setDate(4, (Date) exp.getEnddate());
+				stmt.executeUpdate();
+			}
+
+			stmt.close();
+
+		} catch (Exception e) {
+			throw new Exception(e.getMessage());
+
+		} finally {
+
+			try {
+				db.close();
+			} catch (Exception e) {
+
+			} 
+		}
+		
+	}//end of editProfile
 
 }
