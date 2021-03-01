@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Ad {
 
-    private int id;
+	private int id;
     private String customerEmail;
     private Date startDate;
     private Date endDate;
@@ -12,7 +12,7 @@ public class Ad {
     private String disabity;
     private String description;
     private String location;
-    
+
     public Ad(String customerEmail, Date startDate, Date endDate, String service, String disabity,
 			String description, String location) {
 		this.customerEmail = customerEmail;
@@ -36,7 +36,6 @@ public class Ad {
 		this.location = location;
 	}
 
-    
     public int getId() {
 		return id;
 	}
@@ -108,7 +107,7 @@ public class Ad {
 				+ location + "]";
 	}
 
-	
-	
-	
+
+
+
 }
