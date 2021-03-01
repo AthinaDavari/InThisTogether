@@ -103,4 +103,4 @@ public class CustomerDAO {
 		}
 		
 	}//end of register
-}
+} 
