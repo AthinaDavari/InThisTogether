@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta name="author" content="t8180020@aueb.gr">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Project 2020-2021">
+    <link rel="icon" href="images/favicon.ico">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
+        integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous">
+        </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/SpecificProfile.js"></script>
+    <title>AMEA Supporter Profile</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Bootstrap Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+    <link href="css/background.css" rel="stylesheet">
+
+    <style>
+        /* Create two unequal columns that floats next to each other */
+        /* Left column */
+        .leftcolumn {
+            float: left;
+            width: 60%;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            float: left;
+            width: 40%;
+            padding-left: 20px;
+        }
+
+        /* Add a card effect for articles */
+        .card {
+            /* background-color: #c6b0c8; */
+            /* background-color: rgba(189, 148, 178, 0.58); */
+            background-color: rgba(198, 176, 200, 0.9);
+            /* background-color: transparent; */
+            outline: 5px dotted grey;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #ddd;
+            margin-top: 20px;
+        }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+
+            .leftcolumn,
+            .rightcolumn {
+                width: 100%;
+                padding: 0;
+
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <div class="container" ng-controller="myCtrl">
+
+        <div style="text-align: center;">
+            <h2>{{profile.name}} {{profile.surname}} <small>{{profile.available}}</small></h2>
+            <p><i class="fas fa-map-signs"></i> {{profile.servicetown}} <i class="far fa-user"></i> {{profile.age}}
+                years old
+                <i class="fas fa-venus-mars"></i> {{profile.gender}}
+            </p>
+            <span ng-if="profile.driver && profile.carowner">
+                <i class="fas fa-check"></i> Driver <i class="fas fa-check"></i> Car Owner
+            </span>
+            <span ng-if="!profile.driver && profile.carowner">
+                <i class="fas fa-times"></i> Driver <i class="fas fa-check"></i> Car Owner
+            </span>
+            <span ng-if="profile.driver && !profile.carowner">
+                <i class="fas fa-check"></i> Driver <i class="fas fa-times"></i> Car Owner
+            </span>
+            <span ng-if="!profile.driver && !profile.carowner">
+                <i class="fas fa-times"></i> Driver <i class="fas fa-times"></i> Car Owner
+            </span>
+            <br>
+        </div>
+
+        <div class="row">
+            <div class="leftcolumn">
+                <div class="card">
+                    <h3>Experience</h3>
+                    <div ng-repeat="x in profile.experiences">
+                        <h5><b>{{x.start}} - {{x.end}}</b></h5>
+                        <p>{{x.description}}</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Education</h3>
+                    <div ng-repeat="x in profile.education">
+                        <h4>{{x.title}} - <small>{{x.type}}</small></h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Available Days</h3>
+                    <h5 ng-if="profile.monday"><i class="fas fa-check"></i> Monday</h5>
+                    <h5 ng-if="!profile.monday"><i class="fas fa-times"></i> Monday</h5>
+                    <h5 ng-if="profile.tuesday"><i class="fas fa-check"></i> Tuesday</h5>
+                    <h5 ng-if="!profile.tuesday"><i class="fas fa-times"></i> Tuesday</h5>
+                    <h5 ng-if="profile.wednesday"><i class="fas fa-check"></i> Wednesday</h5>
+                    <h5 ng-if="!profile.wednesday"><i class="fas fa-times"></i> Wednesday</h5>
+                    <h5 ng-if="profile.thursday"><i class="fas fa-check"></i> Thursday</h5>
+                    <h5 ng-if="!profile.thursday"><i class="fas fa-times"></i> Thursday</h5>
+                    <h5 ng-if="profile.friday"><i class="fas fa-check"></i> Friday</h5>
+                    <h5 ng-if="!profile.friday"><i class="fas fa-times"></i> Friday</h5>
+                    <h5 ng-if="profile.saturday"><i class="fas fa-check"></i> Saturday</h5>
+                    <h5 ng-if="!profile.saturday"><i class="fas fa-times"></i> Saturday</h5>
+                    <h5 ng-if="profile.sunday"><i class="fas fa-check"></i> Sunday</h5>
+                    <h5 ng-if="!profile.sunday"><i class="fas fa-times"></i> Sunday</h5>
+                </div>
+                <div class="card">
+                    <h4>Payment per hour: <small><i class="fas fa-euro-sign"></i> {{profile.pay}}</small></h4>
+                </div>
+            </div>
+            <div class="rightcolumn">
+                <div class="card">
+                    <h3>Disability</h3>
+                    <div ng-repeat="x in profile.disabilities">
+                        <p><i class="fab fa-accessible-icon"></i> {{x}}</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Service</h3>
+                    <div ng-repeat="y in profile.services">
+                        <p><i class="far fa-question-circle"></i> {{y}}</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Languages</h3>
+                    <p>{{profile.languages}}</p>
+                </div>
+                <div class="card">
+                    <h3>Service Area</h3>
+                    <p>{{profile.servicearea}}</p>
+                </div>
+                <div class="card">
+                    <h3>Contact</h3>
+                    <p><i class="far fa-envelope"></i> {{profile.email}}</p>
+                    <p><i class="fas fa-mobile-alt"></i> {{profile.phone}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br> <br> <br> <br> <br> <br> <br> <br>
+
+    <!-- End footer -->
+    <div ng-include="'footer.html'"></div>
+    <!-- =================== Place all javascript at the end of the document so the pages load faster =================== -->
+    <!-- jQuery library -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

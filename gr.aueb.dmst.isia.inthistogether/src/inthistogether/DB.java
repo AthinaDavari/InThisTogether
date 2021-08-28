@@ -11,7 +11,7 @@ public class DB {
 	private final String dbServerPort = "3306";
 	private final String dbName = "ismgroup10";
 	private final String dbusername = "ismgroup10";
-	private final String dbpassword = "";
+	private final String dbpassword = "qhusjn";
 
 	private Connection con = null;
 

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="t8180020@aueb.gr">
+    <link rel="icon" href="images/favicon.ico">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
+        integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
+        crossorigin="anonymous"></script>
+
+    <title>AMEA Supporters</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="js/AllProfiles.js"></script>
+    <link href="css/background.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Bootstrap Optional theme -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/theme.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Atma' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya Sans' rel='stylesheet'>
+
+    <style>
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: black;
+            text-decoration: none;
+        }
+
+
+        .panel:hover {
+            box-shadow: 0 0 11px rgba(33, 33, 33, .2);
+        }
+
+        @media screen and (min-width: 990px) {
+            .panel-body {
+                width: 100%;
+                min-height: 200px;
+                max-height: 200px;
+                overflow-y: scroll;
+            }
+        }
+
+        @media screen and (min-width: 395px) {
+            .panel-body {
+                width: 100%;
+                min-height: 230px;
+                max-height: 230px;
+                overflow-y: scroll;
+            }
+         }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container" ng-controller="myCtrl">
+
+        <div style="text-align: center;">
+        <h1 style="font-family: 'Atma';">AMEA Supporters' Profiles</h1>
+        <p style="font-family: 'Atma';">Click on the profile you prefer to see details</p>
+        <br>
+        <h3 style="font-family: 'Atma';">Disability filters</h3>
+
+        <input type="radio" id="or" name="con" ng-model="condition" value="or" ng-checked="true">
+        <label for="male">Or</label>
+        <input type="radio" id="and" name="con" ng-model="condition" value="and" ng-checked="false">
+        <label for="female">And</label><br>
+
+        <div style="display: inline-block;">
+        <input type="checkbox" ng-model="filterr['Mobility Impaired']" /> Mobility Impaired<br/>
+        <input type="checkbox" ng-model="filterr['Dyslexia']" /> Dyslexia
+        <input type="checkbox" ng-model="filterr['Epilipsy']" /> Epilipsy
+        <input type="checkbox" ng-model="filterr['Autism']" /> Autism
+        <input type="checkbox" ng-model="filterr['Deaf']" /> Deaf
+        <input type="checkbox" ng-model="filterr['Blind']" /> Blind
+        <input type="checkbox" ng-model="filterr['Down']" /> Down
+        </div></div>
+
+
+        <br><br>
+        <div ng-repeat="x in profiles.supporters | filter:filterBy">
+
+            <div class="col-md-6">
+                <a href="SpecificProfileAG.html?email={{x.email}}">
+                    <div class="panel panel-default" style="display: flex;">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <br>
+                                {{x.name}} {{x.surname}}
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <p class="card-text">Service : {{x.service}}</p>
+                            <p class="card-text">Disability : {{x.disability}}</p>
+                            <p class="card-text">Service Area: {{x.servicearea}}</p>
+                            <p class="card-text">Languages: {{x.languages}}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+       
+        <h3 ng-if="(profiles.supporters | filter:filterBy).length === 0" style="font-family: 'Atma'; text-align: center;">No AMEA Supporter with those disability services</h3>
+        
+
+        <!-- container ends here -->
+    </div>
+
+    <br> <br> <br> <br> <br> <br>
+    <div ng-include="'footer.html'"></div>
+    <!-- End footer -->
+
+    <!-- =================== Place all javascript at the end of the document so the pages load faster =================== -->
+    <!-- jQuery library -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
